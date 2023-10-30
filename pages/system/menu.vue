@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="">대시보드</div>
+  <div>메뉴관리</div>
 </template>

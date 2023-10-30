@@ -14,27 +14,27 @@ export default [
       {
         index: "1-2",
         name: "메뉴관리",
-        url: "/login",
+        url: "/system/menu",
       },
       {
         index: "1-3",
         name: "권한관리",
-        url: "/login",
+        url: "/system/auth",
       },
       {
         index: "1-4",
         name: "사용자관리",
-        url: "/login",
+        url: "/system/user",
       },
       {
         index: "1-5",
         name: "양식관리",
-        url: "/login",
+        url: "/system/form",
       },
       {
         index: "1-6",
         name: "양식분류관리",
-        url: "/login",
+        url: "/system/form-category",
       },
     ],
   },

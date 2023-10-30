@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div></div>
+  <header class="bg-white shadow p-5">header</header>
 </template>

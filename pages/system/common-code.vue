@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="p-3">대시보드</div>
+  <div>공통코드 관리</div>
 </template>

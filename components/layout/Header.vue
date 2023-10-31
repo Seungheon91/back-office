@@ -14,7 +14,7 @@ import { Search } from "@element-plus/icons-vue";
         <el-avatar class="mr-2">
           <Icon name="ic:sharp-perm-identity" size="22" />
         </el-avatar>
-        <!-- Todo: -->
+        <!-- Todo: 드롭다운 hover border 효과 제거 -->
         <el-dropdown>
           <span class="text-md">
             Seung Heon

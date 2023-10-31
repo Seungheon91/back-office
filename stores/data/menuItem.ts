@@ -5,7 +5,7 @@ export default [
     name: "시스템관리",
     url: "",
     icon: "ic:outline-settings",
-    submenu: [
+    submenus: [
       {
         index: "1-1",
         name: "공통코드관리",
@@ -43,13 +43,13 @@ export default [
     name: "대시보드",
     url: "/",
     icon: "ic:baseline-dashboard",
-    submenu: [],
+    submenus: [],
   },
   {
     index: "3",
     name: "로그인",
     url: "/login",
     icon: "ic:sharp-perm-identity",
-    submenu: [],
+    submenus: [],
   },
 ];

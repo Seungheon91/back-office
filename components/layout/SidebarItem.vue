@@ -1,20 +1,8 @@
 <script setup lang="ts">
-interface Item {
-  index: string;
-  name: string;
-  url: string;
-  icon: string;
-  submenu: Array<Isubmenu>;
-}
-
-interface Isubmenu {
-  index: string;
-  url: string;
-  name: string;
-}
+import type { IMenu } from "~/@types/menu";
 
 interface Props {
-  item: Item;
+  menu: IMenu;
 }
 
 defineProps<Props>();
@@ -22,12 +10,12 @@ defineProps<Props>();
 
 <template>
   <!-- 서브 메뉴가 있는 경우 -->
-  <el-sub-menu v-if="item.submenu.length > 0" :index="item.index">
+  <el-sub-menu v-if="menu.submenus.length > 0" :index="menu.index">
     <template #title>
-      <Icon :name="item.icon" size="20" />
-      <span class="ml-3">{{ item.name }}</span>
+      <Icon :name="menu.icon" size="20" />
+      <span class="ml-3">{{ menu.name }}</span>
     </template>
-    <el-menu-item-group v-for="submenu in item.submenu" class="ml-3">
+    <el-menu-item-group v-for="submenu in menu.submenus" class="ml-3">
       <NuxtLink :to="submenu.url">
         <el-menu-item :index="submenu.index">{{ submenu.name }}</el-menu-item>
       </NuxtLink>
@@ -35,10 +23,10 @@ defineProps<Props>();
   </el-sub-menu>
 
   <!-- 서브 메뉴가 없는 경우 -->
-  <el-menu-item v-else :index="item.index">
-    <NuxtLink :to="item.url" class="block w-full">
-      <Icon :name="item.icon" size="20" />
-      <span class="ml-3">{{ item.name }}</span>
+  <el-menu-item v-else :index="menu.index">
+    <NuxtLink :to="menu.url" class="block w-full">
+      <Icon :name="menu.icon" size="20" />
+      <span class="ml-3">{{ menu.name }}</span>
     </NuxtLink>
   </el-menu-item>
 </template>

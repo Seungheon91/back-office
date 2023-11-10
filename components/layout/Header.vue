@@ -31,7 +31,7 @@ import { Search } from "@element-plus/icons-vue";
                 />
                 마이페이지
               </el-dropdown-item>
-              <el-dropdown-item>
+              <el-dropdown-item @click="$router.push('/login')">
                 <Icon name="ic:baseline-log-out" size="22" class="mr-1" />
                 로그아웃
               </el-dropdown-item>

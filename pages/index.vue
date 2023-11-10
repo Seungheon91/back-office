@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="">대시보드</div>
+  <div class="w-full overflow-auto">
+    <BasicTable />
+  </div>
 </template>

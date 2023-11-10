@@ -15,6 +15,10 @@ interface UserInfo {
 
 const labelPosition = ref<FormProps["labelPosition"]>("top");
 const userInfo = ref<UserInfo>({ memberId: "", password: "" });
+
+const onSubmit = () => {
+  console.log("gg");
+};
 </script>
 
 <template>
@@ -250,18 +254,15 @@ const userInfo = ref<UserInfo>({ memberId: "", password: "" });
                   v-model="userInfo.password"
                   placeholder="********"
                   clearable
+                  type="password"
                 />
               </el-form-item>
+              <el-form-item class="py-4">
+                <el-button class="w-[320px]" type="primary" @click="onSubmit">
+                  로그인
+                </el-button>
+              </el-form-item>
             </el-form>
-          </div>
-          <div class="flex py-4 -mx-3">
-            <div class="w-full px-3 mb-5">
-              <button
-                class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"
-              >
-                로그인
-              </button>
-            </div>
           </div>
         </div>
       </div>

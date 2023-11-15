@@ -16,7 +16,11 @@ const menuStore = useMenuStore();
 
     <nav class="p-2">
       <el-scrollbar>
-        <el-menu background-color="#1E293B" text-color="#fff">
+        <el-menu
+          active-text-color="#FFFFFF"
+          background-color="#1E293B"
+          text-color="#bbbfbc"
+        >
           <SidebarItem v-for="menu in menuStore.menus" :menu="menu" />
         </el-menu>
       </el-scrollbar>
@@ -27,5 +31,8 @@ const menuStore = useMenuStore();
 <style scoped>
 .el-menu {
   border-right: none;
+}
+.el-menu :hover {
+  color: white;
 }
 </style>

@@ -3,11 +3,9 @@ const stat = 0;
 </script>
 
 <template>
-  <div>gg</div>
-  <!--   
-  <div class="p-3 md:overflow-hidden w-full">
-    <div class="md:overflow-x-scroll">
-      <table class="table-auto w-full md:min-w-[480px]">
+  <div class="p-3">
+    <div class="">
+      <table class="table-auto overflow-scroll w-full">
         <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
           <tr>
             <th class="p-2 whitespace-nowrap">
@@ -153,5 +151,5 @@ const stat = 0;
         </tbody>
       </table>
     </div>
-  </div> -->
+  </div>
 </template>

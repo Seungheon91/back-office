@@ -5,7 +5,7 @@ import { Search } from "@element-plus/icons-vue";
 <template>
   <header class="bg-white p-2 border-b-2">
     <div class="flex justify-between">
-      <div>
+      <div class="hidden md:block">
         <el-input class="w-50 p-2" placeholder="Search" :suffix-icon="Search" />
       </div>
       <div

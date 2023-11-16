@@ -1,12 +1,12 @@
-export interface IMenu {
+export interface Menu {
   index: string;
   name: string;
   url: string;
   icon: string;
-  submenus: Array<ISubmenu>;
+  submenus: Array<Submenu>;
 }
 
-export interface ISubmenu {
+export interface Submenu {
   index: string;
   url: string;
   name: string;

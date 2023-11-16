@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { IMenu } from "~/@types/menu";
+import type { Menu } from "~/types/menu";
 
 interface Props {
-  menu: IMenu;
+  menu: Menu;
 }
 
 defineProps<Props>();
@@ -15,7 +15,7 @@ defineProps<Props>();
       <Icon :name="menu.icon" size="20" />
       <span class="ml-3">{{ menu.name }}</span>
     </template>
-    <el-menu-item-group v-for="submenu in menu.submenus" class="ml-3">
+    <el-menu-item-group v-for="submenu in menu.submenus" class="ml-3 mr-3">
       <NuxtLink :to="submenu.url">
         <el-menu-item :index="submenu.index">{{ submenu.name }}</el-menu-item>
       </NuxtLink>
@@ -30,3 +30,4 @@ defineProps<Props>();
     </NuxtLink>
   </el-menu-item>
 </template>
+~/types/menu

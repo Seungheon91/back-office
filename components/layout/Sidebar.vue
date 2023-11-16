@@ -5,9 +5,7 @@ const menuStore = useMenuStore();
 </script>
 
 <template>
-  <aside
-    class="w-64 md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-slate-800"
-  >
+  <aside class="w-64 hidden md:block bg-slate-800">
     <NuxtLink to="/">
       <div class="bg-slate-900 p-2 flex items-center justify-center">
         <img class="w-32" src="@/assets/images/Logo.svg" alt="이지스원 로고" />

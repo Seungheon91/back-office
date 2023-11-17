@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   modules: [
     "@pinia/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
     "@element-plus/nuxt",
     "@nuxtjs/tailwindcss",
     "nuxt-icon",
@@ -13,5 +14,16 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {},
     },
+  },
+  runtimeConfig: {
+    public: {
+      apiBase: process.env.API_BASE_URL,
+    },
+  },
+  piniaPersistedstate: {
+    cookieOptions: {
+      sameSite: "strict",
+    },
+    storage: "localStorage",
   },
 });

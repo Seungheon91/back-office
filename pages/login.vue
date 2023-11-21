@@ -39,6 +39,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
   formEl.validate(async (valid: boolean) => {
     if (valid) {
       await authStore.signIn(userInfo.value.memberId, userInfo.value.password);
+      console.log("success");
       router.push("/");
     } else {
       console.log("fail");

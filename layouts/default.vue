@@ -13,10 +13,7 @@
       <!-- 컨텐츠 -->
       <div class="flex flex-col flex-grow px-4 pb-4 bg-slate-100">
         <LayoutContentHeader />
-
-        <div class="flex flex-col flex-grow bg-white rounded-md p-4">
-          <slot></slot>
-        </div>
+        <slot></slot>
       </div>
     </main>
   </div>

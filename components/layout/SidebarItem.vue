@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import type { Menu } from "~/types/menu";
 
-interface Props {
-  menu: Menu;
-}
-
-defineProps<Props>();
+defineProps<{ menu: Menu }>();
 </script>
 
 <template>
@@ -30,4 +26,3 @@ defineProps<Props>();
     </NuxtLink>
   </el-menu-item>
 </template>
-~/types/menu

@@ -46,11 +46,11 @@ export default [
     ],
   },
 
-  {
-    index: "3",
-    name: "로그인",
-    url: "/login",
-    icon: "ic:sharp-perm-identity",
-    submenus: [],
-  },
+  // {
+  //   index: "3",
+  //   name: "로그인",
+  //   url: "/login",
+  //   icon: "ic:sharp-perm-identity",
+  //   submenus: [],
+  // },
 ];

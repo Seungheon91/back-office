@@ -2,10 +2,10 @@
 export default defineNuxtConfig({
   modules: [
     "@pinia/nuxt",
-    "@pinia-plugin-persistedstate/nuxt",
     "@element-plus/nuxt",
     "@nuxtjs/tailwindcss",
     "nuxt-icon",
+    "@vueuse/nuxt",
   ],
   devtools: { enabled: false },
   css: ["~/assets/css/main.css", "element-plus/dist/index.css"],
@@ -20,10 +20,7 @@ export default defineNuxtConfig({
       apiBase: process.env.API_BASE_URL,
     },
   },
-  piniaPersistedstate: {
-    cookieOptions: {
-      sameSite: "strict",
-    },
-    storage: "localStorage",
+  app: {
+    pageTransition: { name: "fade", mode: "out-in" },
   },
 });

@@ -54,7 +54,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
     class="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5"
   >
     <div
-      class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-auto sm:w-[500px] overflow-hidden"
+      class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-auto sm:w-[500px]"
     >
       <div class="w-full">
         <div class="w-full py-10 px-5">

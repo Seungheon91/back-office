@@ -6,18 +6,23 @@ export function useCustomFetch<T>(
   options: UseFetchOptions<T> = {}
 ) {
   const config = useRuntimeConfig();
-  const auth: any = useCookie("token");
+  const authStore = useAuthStore();
+  const tokenInfo: any = useCookie("token");
   const defaults: UseFetchOptions<T> = {
     baseURL: config.public.apiBase,
     key: url,
+    //server: false,
+    retry: 1,
+    retryStatusCodes: [401],
+    retryDelay: 500,
 
     // set user token
     headers:
-      auth.value !== undefined
-        ? { Authorization: `Bearer ${auth.value.accessToken}` }
+      tokenInfo.value !== undefined
+        ? { Authorization: `Bearer ${tokenInfo.value.accessToken}` }
         : {},
 
-    onRequest(_ctx) {},
+    onRequest({ options }) {},
 
     onRequestError(_ctx) {},
 
@@ -25,8 +30,25 @@ export function useCustomFetch<T>(
       // _ctx.response._data = new myBusinessResponse(_ctx.response._data)
     },
 
-    onResponseError(_ctx) {
-      // throw new myBusinessError()
+    async onResponseError({ response }) {
+      if (response.status === 401) {
+        await useFetch("/api/reissue", {
+          method: "POST",
+          baseURL: config.public.apiBase,
+          body: tokenInfo.value,
+          onResponse({ response }) {
+            console.log(response);
+            console.log(response._data);
+            //authStore.setTokenInfo(response._data)
+            if (response.status === 401) {
+              authStore.signOut();
+              return;
+            }
+
+            authStore.setTokenInfo(response._data);
+          },
+        });
+      }
     },
   };
 

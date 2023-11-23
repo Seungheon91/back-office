@@ -3,10 +3,10 @@ import type { UserToken } from "~/types/auth";
 
 export const useAuthStore = defineStore("auth", () => {
   const router = useRouter();
-  const tokenInfo = ref<UserToken | undefined | null>();
+  const tokenInfo = useCookie("token");
 
   const signIn = async (memberId: string, password: string) => {
-    const { data, error } = await useCustomFetch("/login", {
+    const { data, error } = await useCustomFetch("/api/login", {
       method: "POST",
       body: { memberId, password },
     });
@@ -16,12 +16,12 @@ export const useAuthStore = defineStore("auth", () => {
       throw error.value;
     }
 
-    tokenInfo.value = data.value as UserToken;
+    //tokenInfo.value = data.value as UserToken;
     setTokenInfo(data.value as UserToken);
   };
 
   const signOut = async () => {
-    await useCustomFetch("/logout", {
+    await useCustomFetch("/api/logout", {
       method: "POST",
       body: tokenInfo.value,
     });
@@ -41,6 +41,21 @@ export const useAuthStore = defineStore("auth", () => {
     cookie.value = JSON.stringify(tokenInfo);
   };
 
+  const reissue = async () => {
+    const { data, error } = await useCustomFetch("/api/reissue", {
+      method: "POST",
+      body: tokenInfo.value,
+    });
+
+    if (error.value) {
+      alert(error.value.data.message);
+      throw error.value;
+    }
+
+    //tokenInfo.value = data.value as UserToken;
+    setTokenInfo(data.value as UserToken);
+  };
+
   const reset = () => {
     const cookie = useCookie("token");
 
@@ -53,5 +68,6 @@ export const useAuthStore = defineStore("auth", () => {
     signIn,
     signOut,
     setTokenInfo,
+    reissue,
   };
 });

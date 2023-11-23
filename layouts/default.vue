@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="w-screen h-screen flex">
+  <div class="w-full h-full flex">
     <!-- 사이드바 -->
     <LayoutSidebar />
 
@@ -11,10 +11,12 @@
       <LayoutHeader />
 
       <!-- 컨텐츠 -->
-      <div class="flex flex-col flex-grow px-4 pb-4 bg-slate-100">
-        <LayoutContentHeader />
-        <slot></slot>
-      </div>
+      <el-scrollbar class="px-4 pb-4 bg-slate-100">
+        <div class="flex flex-col flex-grow">
+          <LayoutContentHeader />
+          <slot></slot>
+        </div>
+      </el-scrollbar>
     </main>
   </div>
 </template>

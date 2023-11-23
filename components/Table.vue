@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   columns: string[];
-  data: object[];
+  data: any[] | undefined;
   align: string;
 }>();
 </script>
@@ -11,6 +11,8 @@ defineProps<{
     :data="data"
     style="width: 100%"
     table-layout="auto"
+    row-key="menuId"
+    lazy
     :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
     :default-expand-all="true"
   >

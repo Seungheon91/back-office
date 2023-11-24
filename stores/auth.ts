@@ -16,7 +16,6 @@ export const useAuthStore = defineStore("auth", () => {
       throw error.value;
     }
 
-    //tokenInfo.value = data.value as UserToken;
     setTokenInfo(data.value as UserToken);
   };
 
@@ -52,7 +51,6 @@ export const useAuthStore = defineStore("auth", () => {
       throw error.value;
     }
 
-    //tokenInfo.value = data.value as UserToken;
     setTokenInfo(data.value as UserToken);
   };
 

@@ -1,5 +1,6 @@
 import { makeTree } from "~/utils/tree";
 import _orderBy from "lodash/orderBy";
+import _cloneDeep from "lodash/cloneDeep";
 
 interface MenuInfo {
   menuId: number;
@@ -21,6 +22,7 @@ interface MenuInfo {
 
 export function useMenu() {
   const menuList = ref<Array<any>>([]);
+  const menuOptionList = ref<Array<MenuInfo>>([]);
 
   const getMenuList = async () => {
     const { data, error } = await useCustomFetch<Array<MenuInfo>>(
@@ -43,12 +45,54 @@ export function useMenu() {
       { labelKey: "menuName", valueKey: "menuId" }
     );
 
-    console.log(menuList.value);
+    menuOptionList.value = [
+      {
+        label: "선택안함",
+        value: 0,
+        menuId: 0,
+        menuName: "선택안함",
+        menuIcon: "",
+        parentMenuId: 0,
+        url: "",
+        useYn: "Y",
+        seqNo: 0,
+        lnbYn: "Y",
+        level: 0,
+        readYn: "Y",
+        writeYn: "Y",
+        deleteYn: "Y",
+        printYn: "Y",
+        excelYn: "Y",
+      },
+    ].concat(_cloneDeep(menuList.value));
+  };
+
+  const setMenuInfo = async () => {
+    const { data, error } = await useCustomFetch("/api/syst/menus", {
+      method: "POST",
+      //body: Object.assign({}, localMenuInfo.value, { menuLevel: localMenuInfo.value.depth })
+    });
+  };
+
+  const updateMenuInfo = async () => {
+    const { data } = await useCustomFetch(
+      `/api/syst/menus/ ${"localMenuInfo.value.menuId"}`,
+      {
+        method: "POST",
+        //body: Object.assign({}, localMenuInfo.value, { menuLevel: localMenuInfo.value.depth })
+      }
+    );
   };
 
   onMounted(() => {
     getMenuList();
   });
 
-  return { menuList, getMenuList };
+  return {
+    menuList,
+    menuOptionList,
+    getMenuList,
+    setMenuInfo,
+    updateMenuInfo,
+  };
 }

@@ -37,15 +37,11 @@ export function useCustomFetch<T>(
           baseURL: config.public.apiBase,
           body: tokenInfo.value,
           onResponse({ response }) {
-            console.log(response);
-            console.log(response._data);
-            //authStore.setTokenInfo(response._data)
             if (response.status === 401) {
               authStore.signOut();
-              return;
+            } else {
+              authStore.setTokenInfo(response._data);
             }
-
-            authStore.setTokenInfo(response._data);
           },
         });
       }

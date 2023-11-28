@@ -23,6 +23,7 @@ interface MenuInfo {
 export function useMenu() {
   const menuList = ref<Array<any>>([]);
   const menuOptionList = ref<Array<MenuInfo>>([]);
+  const menuInfo = ref<MenuInfo>();
 
   const getMenuList = async () => {
     const { data, error } = await useCustomFetch<Array<MenuInfo>>(
@@ -67,12 +68,16 @@ export function useMenu() {
     ].concat(_cloneDeep(menuList.value));
   };
 
-  const setMenuInfo = async () => {
-    const { data, error } = await useCustomFetch("/api/syst/menus", {
-      method: "POST",
-      //body: Object.assign({}, localMenuInfo.value, { menuLevel: localMenuInfo.value.depth })
-    });
+  const setMenuInfo = (data: MenuInfo) => {
+    menuInfo.value = data;
   };
+
+  // const setMenuInfo = async () => {
+  //   const { data, error } = await useCustomFetch("/api/syst/menus", {
+  //     method: "POST",
+  //     //body: Object.assign({}, localMenuInfo.value, { menuLevel: localMenuInfo.value.depth })
+  //   });
+  // };
 
   const updateMenuInfo = async () => {
     const { data } = await useCustomFetch(
@@ -91,6 +96,7 @@ export function useMenu() {
   return {
     menuList,
     menuOptionList,
+    menuInfo,
     getMenuList,
     setMenuInfo,
     updateMenuInfo,

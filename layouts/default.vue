@@ -11,7 +11,7 @@
       <LayoutHeader />
 
       <!-- 컨텐츠 -->
-      <el-scrollbar class="px-4 pb-4 bg-slate-100">
+      <el-scrollbar class="px-4 pb-4 bg-slate-100 overflow-auto w-full">
         <div class="flex flex-col flex-grow">
           <LayoutContentHeader />
           <slot></slot>

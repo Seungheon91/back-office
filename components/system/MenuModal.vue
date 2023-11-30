@@ -1,12 +1,9 @@
 <script setup lang="ts">
-const { menuOptionList } = useMenu();
-
 const emit = defineEmits(["update:modelValue"]);
-const menuInfo = ref({});
 
-watch(menuInfo, (menuInfo) => {
-  emit("update:modelValue", menuInfo);
-});
+// watch(menuInfo, (menuInfo) => {
+//   emit("update:modelValue", menuInfo);
+// });
 </script>
 
 <template>
@@ -18,14 +15,11 @@ watch(menuInfo, (menuInfo) => {
       size="large"
       class="w-72"
     >
-      <el-form-item label="메뉴명" prop="memberId">
+      <el-form-item label="메뉴명" prop="menuName">
         <el-input placeholder="" clearable />
       </el-form-item>
       <el-form-item label="상위메뉴" prop="password">
-        <el-tree-select
-          placeholder="상위메뉴"
-          :data="menuOptionList"
-        ></el-tree-select>
+        <el-tree-select placeholder="상위메뉴"></el-tree-select>
       </el-form-item>
 
       <el-form-item label="LNB">

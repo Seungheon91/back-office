@@ -15,7 +15,7 @@ import { Search } from "@element-plus/icons-vue";
       <el-button type="primary" size="large">신규 등록</el-button>
     </div>
 
-    <div class="bg-white flex flex-col items-center justify-center">
+    <div class="bg-white p-2 rounded-md">
       <el-table highlight-current-row table-layout="auto">
         <el-table-column
           header-align="center"
@@ -80,7 +80,11 @@ import { Search } from "@element-plus/icons-vue";
           prop="updatedAt"
         />
       </el-table>
-      <Pagination class="py-5" :total="20" :page-count="3" />
+      <Pagination
+        class="flex items-center justify-center py-6"
+        :total="20"
+        :page-count="3"
+      />
     </div>
   </div>
 </template>

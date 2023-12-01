@@ -7,7 +7,7 @@
         <h3>분류목록</h3>
         <el-button type="primary" size="large">신규등록</el-button>
       </div>
-      <div class="bg-white rounded-md">
+      <div class="bg-white rounded-md p-2">
         <el-table
           style="width: 100%"
           :default-expand-all="true"
@@ -34,7 +34,7 @@
       <div class="flex items-center py-6">
         <h3>분류상세</h3>
       </div>
-      <div class="bg-white rounded-md">
+      <div class="bg-white rounded-md p-2">
         <el-table></el-table>
       </div>
     </div>

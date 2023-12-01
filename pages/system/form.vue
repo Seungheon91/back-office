@@ -60,7 +60,7 @@ const radio = ref(3);
         </div>
       </div>
     </div>
-    <div class="border mt-4 bg-white rounded-md">
+    <div class="border mt-4 bg-white rounded-md p-2">
       <el-table style="width: 100%" table-layout="auto">
         <el-table-column
           width="88"
@@ -129,6 +129,12 @@ const radio = ref(3);
           label="등록일"
         />
       </el-table>
+
+      <Pagination
+        class="flex items-center justify-center py-6"
+        :total="20"
+        :page-count="3"
+      />
     </div>
   </div>
 </template>

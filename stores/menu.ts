@@ -9,6 +9,11 @@ export const useMenuStore = defineStore("menu", () => {
   const setMenuNames = (routerPath: string) => {
     menuNames.value = [];
 
+    if (routerPath === "/mypage") {
+      menuNames.value.push("마이페이지");
+      return;
+    }
+
     for (let menu of menuItem) {
       if (routerPath === menu.url) {
         menuNames.value.push(menu.name);

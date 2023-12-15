@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const router = useRouter();
 const authStore = useAuthStore();
 </script>
 
@@ -14,13 +15,13 @@ const authStore = useAuthStore();
         </el-avatar>
         <el-dropdown trigger="click">
           <span class="text-md hover:border-none">
-            Seung Heon
+            Tester
             <Icon name="ic:round-keyboard-arrow-down" size="22" />
           </span>
 
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item>
+              <el-dropdown-item @click="router.push('/mypage')">
                 <Icon
                   name="ic:baseline-manage-accounts"
                   size="22"

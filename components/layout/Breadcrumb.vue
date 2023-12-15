@@ -5,7 +5,10 @@ const menuStore = useMenuStore();
 </script>
 
 <template>
-  <el-breadcrumb :separator-icon="ArrowRight" class="flex items-center py-4">
+  <el-breadcrumb
+    :separator-icon="ArrowRight"
+    class="flex items-center px-8 py-4 bg-slate-50 border-b-1"
+  >
     <el-breadcrumb-item :to="{ path: '/' }">
       <Icon name="ic:outline-home" size="20" />
     </el-breadcrumb-item>

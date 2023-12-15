@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const modal = useModalStore();
-const { isOpen, title, width, component, actions, showClose } =
+const { isOpen, title, width, component, showClose, props } =
   storeToRefs(modal);
 
 const model = reactive({});
@@ -18,19 +18,10 @@ const handleClose = () => {
       :width="width"
       :before-close="showClose ? undefined : handleClose"
       :show-close="showClose"
+      style="border-radius: 10px"
     >
       <template #header>{{ title }}</template>
-      <component :is="component" v-model="model"></component>
-      <template #footer>
-        <el-button @click="modal.closeModal">취소</el-button>
-        <el-button
-          v-for="action in actions"
-          :type="action.buttonType"
-          @click="action.callback(model)"
-        >
-          {{ action.label }}
-        </el-button>
-      </template>
+      <component :is="component" v-bind="props" v-model="model"></component>
     </el-dialog>
   </Teleport>
 </template>

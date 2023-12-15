@@ -31,6 +31,7 @@ export const useAuthStore = defineStore("auth", () => {
   };
 
   const setTokenInfo = (tokenInfo: UserToken) => {
+    console.log(tokenInfo);
     const cookie = useCookie("token", {
       maxAge: 60 * 24 * 28,
       sameSite: true,
@@ -38,6 +39,7 @@ export const useAuthStore = defineStore("auth", () => {
     });
 
     cookie.value = JSON.stringify(tokenInfo);
+    console.log(cookie.value);
   };
 
   const reissue = async () => {

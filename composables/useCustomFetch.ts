@@ -11,7 +11,7 @@ export function useCustomFetch<T>(
   const defaults: UseFetchOptions<T> = {
     baseURL: config.public.apiBase,
     key: url,
-    //server: false,
+    server: false,
     retry: 1,
     retryStatusCodes: [401],
     retryDelay: 500,
@@ -37,6 +37,7 @@ export function useCustomFetch<T>(
           baseURL: config.public.apiBase,
           body: tokenInfo.value,
           onResponse({ response }) {
+            console.log(response);
             if (response.status === 401) {
               authStore.signOut();
             } else {

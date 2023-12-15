@@ -4,7 +4,7 @@ import { Search } from "@element-plus/icons-vue";
 
 <template>
   <div class="flex flex-col">
-    <div class="flex justify-between items-center pt-2 pb-4">
+    <div class="flex justify-between items-center pb-4">
       <div class="w-80">
         <el-input
           placeholder="단지코드 또는 단지명을 입력해주세요."
@@ -15,7 +15,9 @@ import { Search } from "@element-plus/icons-vue";
       <el-button type="primary" size="large">신규 등록</el-button>
     </div>
 
-    <div class="bg-white p-2 rounded-md">
+    <div
+      class="flex flex-col items-center justify-center gap-9 bg-white p-4 rounded-md"
+    >
       <el-table highlight-current-row table-layout="auto">
         <el-table-column
           header-align="center"
@@ -80,11 +82,7 @@ import { Search } from "@element-plus/icons-vue";
           prop="updatedAt"
         />
       </el-table>
-      <Pagination
-        class="flex items-center justify-center py-6"
-        :total="20"
-        :page-count="3"
-      />
+      <Pagination :total="20" :page-count="3" />
     </div>
   </div>
 </template>

@@ -2,56 +2,28 @@
 import menuModal from "~/components/system/MenuModal.vue";
 import type { TableColumnCtx } from "element-plus";
 
-const { menuList, setMenuInfo, menuInfo } = useMenu();
-const { openModal, closeModal } = useModalStore();
+const { menuList, menuOptionList } = useMenu();
+const { openModal } = useModalStore();
 
 const formatter = (row: any, column: TableColumnCtx<any>) => {
   return row[column.property] === "Y" ? "사용" : "미사용";
 };
 
 const handleOpenMenuModal = () => {
-  openModal(
-    "메뉴 등록",
-    "450px",
-    menuModal,
-    [
-      {
-        label: "등록",
-        callback: (data) => {
-          console.log(data);
-          closeModal();
-        },
-        buttonType: "primary",
-      },
-    ],
-    false
-  );
+  const modalProps = { menuOptionList: menuOptionList };
+  openModal("메뉴 등록", "450px", menuModal, false, modalProps);
 };
 
 const handleOpenMenuDetailModal = (row: any) => {
-  setMenuInfo(row);
-  openModal(
-    "메뉴 상세",
-    "450px",
-    menuModal,
-    [
-      {
-        label: "저장",
-        callback: (data) => {
-          console.log(data);
-          closeModal();
-        },
-        buttonType: "primary",
-      },
-    ],
-    false
-  );
+  const modalProps = { menuInfo: row, menuOptionList: menuOptionList };
+
+  openModal("메뉴 상세", "450px", menuModal, false, modalProps);
 };
 </script>
 
 <template>
   <div>
-    <div class="flex justify-end pt-2 pb-2 items-center">
+    <div class="flex justify-end pb-4 items-center">
       <el-button type="primary" size="large" @click="handleOpenMenuModal">
         메뉴 등록
       </el-button>

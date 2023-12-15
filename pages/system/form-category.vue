@@ -3,11 +3,11 @@
 <template>
   <div class="grid grid-cols-3 gap-4">
     <div class="flex flex-col">
-      <div class="flex justify-between items-center py-4">
-        <h3>분류목록</h3>
+      <div class="flex justify-between items-center pb-4">
+        <h3 class="text-lg font-semibold">분류목록</h3>
         <el-button type="primary" size="large">신규등록</el-button>
       </div>
-      <div class="bg-white rounded-md p-2">
+      <div class="bg-white rounded-md p-4">
         <el-table
           style="width: 100%"
           :default-expand-all="true"
@@ -31,10 +31,10 @@
       </div>
     </div>
     <div class="flex flex-col col-span-2">
-      <div class="flex items-center py-6">
-        <h3>분류상세</h3>
+      <div class="flex items-center pt-2 pb-6">
+        <h3 class="text-lg font-semibold">분류상세</h3>
       </div>
-      <div class="bg-white rounded-md p-2">
+      <div class="bg-white rounded-md p-4">
         <el-table></el-table>
       </div>
     </div>

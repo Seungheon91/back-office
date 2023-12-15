@@ -1,49 +1,38 @@
 import { defineStore } from "pinia";
 
-export type ModalAction = {
-  label: string;
-  callback: (props?: any) => void;
-  buttonType:
-    | "default"
-    | "text"
-    | "success"
-    | "warning"
-    | "info"
-    | "primary"
-    | "danger";
-};
-
 export const useModalStore = defineStore("modal", () => {
   const isOpen = ref<boolean>(false);
   const width = ref<any>("");
   const title = ref<string | undefined | null>("");
-  const component = shallowRef({});
-  const actions = ref<Array<ModalAction> | undefined>([]);
+  const component = shallowRef<object | undefined | null>(null);
   const showClose = ref<boolean | undefined>(true);
+  const props = ref<object | undefined | null>({});
 
   const openModal = (
     modalTitle: string,
     modalWidth: any,
-    modalComponent: any,
-    modalActions: ModalAction[],
-    showCloseButton: boolean | undefined
+    modalComponent: object,
+    showCloseButton?: boolean,
+    modalProps?: object
   ) => {
     isOpen.value = true;
     title.value = modalTitle;
     width.value = modalWidth;
     component.value = markRaw(modalComponent);
-    actions.value = modalActions;
     showClose.value = showCloseButton;
+    props.value = modalProps;
   };
 
   const closeModal = () => {
     isOpen.value = false;
 
+    // 모달 닫힐때 잔상으로 인해서 데이터 늦게 지움
     setTimeout(() => {
-      title.value = "";
       width.value = "";
-      actions.value = [];
+      title.value = "";
       showClose.value = true;
+      component.value = null;
+      props.value = null;
     }, 500);
   };
 
@@ -52,8 +41,8 @@ export const useModalStore = defineStore("modal", () => {
     title,
     width,
     component,
-    actions,
     showClose,
+    props,
     openModal,
     closeModal,
   };

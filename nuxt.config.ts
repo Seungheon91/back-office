@@ -22,5 +22,15 @@ export default defineNuxtConfig({
   },
   app: {
     pageTransition: { name: "fade", mode: "out-in" },
+    head: {
+      htmlAttrs: { lang: "ko" },
+      link: [
+        {
+          rel: "stylesheet",
+          type: "text/css",
+          href: "https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap",
+        },
+      ],
+    },
   },
 });

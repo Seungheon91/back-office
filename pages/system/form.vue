@@ -9,7 +9,7 @@ const radio = ref(3);
     <div class="flex justify-end">
       <el-button type="danger" size="large">신규등록</el-button>
     </div>
-    <div class="border flex flex-col bg-white px-8 py-4 mt-4 rounded-md">
+    <div class="flex flex-col bg-white px-8 py-4 mt-4 rounded-md">
       <div class="grid grid-cols-3 gap-2">
         <div class="flex gap-2">
           <el-select
@@ -60,7 +60,9 @@ const radio = ref(3);
         </div>
       </div>
     </div>
-    <div class="border mt-4 bg-white rounded-md p-2">
+    <div
+      class="flex flex-col items-center justify-center gap-6 mt-4 bg-white rounded-md p-4"
+    >
       <el-table style="width: 100%" table-layout="auto">
         <el-table-column
           width="88"
@@ -130,11 +132,7 @@ const radio = ref(3);
         />
       </el-table>
 
-      <Pagination
-        class="flex items-center justify-center py-6"
-        :total="20"
-        :page-count="3"
-      />
+      <Pagination :total="20" :page-count="3" />
     </div>
   </div>
 </template>

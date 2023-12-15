@@ -9,6 +9,7 @@ body {
   min-height: 100%;
   position: relative;
   overflow: auto;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 #__nuxt {

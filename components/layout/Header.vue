@@ -1,24 +1,19 @@
 <script setup lang="ts">
-import { Search } from "@element-plus/icons-vue";
-
 const authStore = useAuthStore();
 </script>
 
 <template>
-  <header class="bg-white p-2 border-b-2">
-    <div class="flex justify-between">
-      <div class="hidden md:block">
-        <el-input class="w-50 p-2" placeholder="Search" :suffix-icon="Search" />
+  <header class="bg-white px-8 py-3 border-b-2">
+    <div class="flex justify-between lg:justify-end">
+      <div class="flex justify-center items-center lg:hidden">
+        <Icon name="ic:baseline-menu" size="22" />
       </div>
-      <div
-        class="flex flex-row justify-center items-center pr-2 cursor-pointer"
-      >
+      <div class="flex justify-center items-center pr-2 cursor-pointer">
         <el-avatar class="mr-2">
           <Icon name="ic:sharp-perm-identity" size="22" />
         </el-avatar>
-        <!-- Todo: 드롭다운 hover border 효과 제거 -->
-        <el-dropdown>
-          <span class="text-md">
+        <el-dropdown trigger="click">
+          <span class="text-md hover:border-none">
             Seung Heon
             <Icon name="ic:round-keyboard-arrow-down" size="22" />
           </span>
@@ -44,3 +39,9 @@ const authStore = useAuthStore();
     </div>
   </header>
 </template>
+
+<style>
+.el-dropdown span {
+  border: none;
+}
+</style>

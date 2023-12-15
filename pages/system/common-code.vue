@@ -3,8 +3,8 @@
 <template>
   <div class="grid grid-cols-2 gap-4">
     <div class="flex flex-col">
-      <div class="flex justify-between items-center py-2 w-full">
-        <h3>분류코드</h3>
+      <div class="flex justify-between items-center pb-4 w-full">
+        <h3 class="text-lg font-semibold">분류코드</h3>
         <el-button type="primary" size="large">신규 등록</el-button>
       </div>
       <div class="bg-white w-full overflow-auto">
@@ -22,8 +22,8 @@
       </div>
     </div>
     <div class="flex flex-col">
-      <div class="flex justify-between items-center py-2 w-full">
-        <h3>상세코드</h3>
+      <div class="flex justify-between items-center pb-4 w-full">
+        <h3 class="text-lg font-semibold">상세코드</h3>
         <el-button type="primary" size="large">신규 등록</el-button>
       </div>
       <div class="bg-white w-full overflow-auto">

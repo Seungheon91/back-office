@@ -1,44 +1,12 @@
+import type { MenuInfo, MenuDetailInfo } from "~/types/menu";
 import { makeTree } from "~/utils/tree";
+
 import _orderBy from "lodash/orderBy";
 import _cloneDeep from "lodash/cloneDeep";
-
-interface MenuInfo {
-  menuId: number;
-  menuName: string;
-  parentMenuId: number;
-  url: string;
-  useYn: string;
-  seqNo: number;
-  menuIcon: string | null;
-  lnbYn: string;
-  level: number;
-  readYn: string;
-  writeYn: string;
-  deleteYn: string;
-  printYn: string;
-  excelYn: string;
-  remark?: string | null;
-}
-
-interface MenuDetailInfo {
-  children?: Array<MenuDetailInfo>;
-  menuId: number;
-  menuName?: string;
-  parentMenuId?: number;
-  url?: string;
-  useYn?: string;
-  seqNo?: number;
-  menuIcon: string | null;
-  lnbYn?: string;
-  level?: number;
-  remark?: string | null;
-  depth: number;
-}
 
 export function useMenu() {
   const menuList = ref<Array<any>>([]);
   const menuOptionList = ref<Array<MenuInfo>>([]);
-  const menuInfo = ref<MenuDetailInfo>();
 
   const getMenuList = async () => {
     const { data, error } = await useCustomFetch<Array<MenuInfo>>(
@@ -83,18 +51,12 @@ export function useMenu() {
     ].concat(_cloneDeep(menuList.value));
   };
 
-  const setMenuInfo = (data: MenuDetailInfo) => {
-    console.log(data);
-    menuInfo.value = data;
-    console.log(menuInfo.value);
+  const setMenuInfo = async () => {
+    const { data, error } = await useCustomFetch("/api/syst/menus", {
+      method: "POST",
+      //body: Object.assign({}, localMenuInfo.value, { menuLevel: localMenuInfo.value.depth })
+    });
   };
-
-  // const setMenuInfo = async () => {
-  //   const { data, error } = await useCustomFetch("/api/syst/menus", {
-  //     method: "POST",
-  //     //body: Object.assign({}, localMenuInfo.value, { menuLevel: localMenuInfo.value.depth })
-  //   });
-  // };
 
   const updateMenuInfo = async () => {
     const { data } = await useCustomFetch(
@@ -113,7 +75,6 @@ export function useMenu() {
   return {
     menuList,
     menuOptionList,
-    menuInfo,
     getMenuList,
     setMenuInfo,
     updateMenuInfo,

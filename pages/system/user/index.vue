@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { Search } from "@element-plus/icons-vue";
+
+const route = useRoute();
+const router = useRouter();
 </script>
 
 <template>

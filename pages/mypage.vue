@@ -6,7 +6,7 @@ import { CameraFilled } from "@element-plus/icons-vue";
   <div class="flex justify-center items-center h-[750px]">
     <div class="grid grid-cols-3 gap-4 w-[700px] h-[400px]">
       <div
-        class="border flex flex-col justify-between items-center bg-white px-6 py-8 rounded-md"
+        class="flex flex-col justify-between items-center bg-white px-6 py-8 rounded-md"
       >
         <div class="flex flex-col justify-center items-center">
           <el-image>
@@ -26,16 +26,30 @@ import { CameraFilled } from "@element-plus/icons-vue";
         </p>
       </div>
 
-      <div
-        class="border flex flex-col bg-white col-span-2 rounded-md px-10 py-8"
-      >
+      <div class="flex flex-col bg-white col-span-2 rounded-md px-10 py-8">
         <div class="flex text-sm py-3">
           <p class="w-16">이름</p>
-          <p>gg</p>
+          <p class="ml-7">gg</p>
         </div>
         <div class="flex text-sm py-3">
-          <p class="mr-12">생년월일</p>
-          <p>gg</p>
+          <p class="w-16">생년월일</p>
+          <p class="ml-7">gg</p>
+        </div>
+        <div class="flex text-sm py-3">
+          <p class="w-16">전화번호</p>
+          <p class="ml-7">gg</p>
+        </div>
+        <div class="flex text-sm py-3">
+          <p class="w-16">소속단지</p>
+          <p class="ml-7">gg</p>
+        </div>
+        <div class="flex text-sm py-3">
+          <p class="w-16">단지코드</p>
+          <p class="ml-7">gg</p>
+        </div>
+        <div class="flex text-sm py-3">
+          <p class="w-16">직책</p>
+          <p class="ml-7">gg</p>
         </div>
       </div>
     </div>
